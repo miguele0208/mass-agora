@@ -9,19 +9,18 @@
     <meta name="author" content="Mass Ágora">
 
     <link rel="icon" href="./Imagenesmass/logo.png">
-    <!-- FontAwesome & Google Fonts -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800;900&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
 
     <style>
         /* PALETA DE COLORES DE MASS ÁGORA (SIN CAMBIOS) */
         :root {
-            --primary: #2C4A3E;       /* Verde Oscuro Institucional */
-            --primary-light: #3A5F52; /* Verde Medio Corporativo */
-            --accent: #76A032;        /* Verde Vivo / Agroecología */
-            --gold: #D4AF37;          /* Acento Dorado Elegante */
-            --dark: #222222;          /* Texto Oscuro General */
-            --light-bg: #F4F6F4;      /* Fondo Claro Natural */
+            --primary: #2C4A3E;
+            --primary-light: #3A5F52;
+            --accent: #76A032;
+            --gold: #D4AF37;
+            --dark: #222222;
+            --light-bg: #F4F6F4;
             --white: #FFFFFF;
             --border: #E2E8E4;
             --text-gray: #666666;
@@ -30,243 +29,142 @@
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Open Sans', sans-serif; background-color: var(--light-bg); color: var(--dark); line-height: 1.6; }
+        body { font-family: 'Open Sans', sans-serif; background-color: var(--light-bg); color: var(--dark); line-height: 1.6; overflow-x: hidden; }
         h1, h2, h3, h4 { font-family: 'Montserrat', sans-serif; }
         a { color: inherit; }
         img { max-width: 100%; display: block; }
+        button { font-family: inherit; }
 
-        /* TOPBAR INSTITUCIONAL */
-        .topbar {
-            background-color: var(--primary);
-            color: var(--white);
-            padding: 8px 8%;
-            font-size: 13px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+        /* TOPBAR */
+        .topbar { background-color: var(--primary); color: var(--white); padding: 8px 8%; font-size: 13px; display: flex; justify-content: space-between; align-items: center; }
         .topbar-info span { margin-right: 20px; }
         .topbar-info i { color: var(--accent); margin-right: 6px; }
         .topbar-social a { color: var(--white); margin-left: 12px; text-decoration: none; font-size: 14px; transition: color 0.3s; }
         .topbar-social a:hover { color: var(--accent); }
 
-        /* NAVBAR PRINCIPAL CON SUBMENÚS (estilo funcener.org) */
+        /* NAVBAR CON SUBMENÚS (funcener.org) */
         header { background: var(--white); box-shadow: 0 2px 12px rgba(0,0,0,0.06); position: sticky; top: 0; z-index: 1000; }
-        nav { display: flex; justify-content: space-between; align-items: center; padding: 14px 8%; }
+        nav { display: flex; justify-content: space-between; align-items: center; padding: 12px 8%; }
         .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
-        .logo-mark { width: 42px; height: 42px; border-radius: 50%; background: var(--primary); display: flex; align-items: center; justify-content: center; color: var(--white); font-size: 18px; }
-        .logo-text { font-family: 'Montserrat', sans-serif; font-weight: 800; color: var(--primary); font-size: 18px; line-height: 1.1; }
-        .logo-text span { display: block; font-family: 'Open Sans', sans-serif; font-weight: 600; font-size: 11px; color: var(--accent); text-transform: uppercase; letter-spacing: 0.5px; }
-
-        nav > ul { display: flex; list-style: none; gap: 6px; align-items: center; }
+        nav > ul { display: flex; list-style: none; gap: 4px; align-items: center; }
         nav > ul > li { position: relative; }
-        nav a { text-decoration: none; color: var(--dark); font-weight: 600; font-size: 14px; text-transform: uppercase; letter-spacing: 0.5px; transition: 0.2s; padding: 10px 12px; display: inline-block; }
+        nav a { text-decoration: none; color: var(--dark); font-weight: 600; font-size: 13.5px; text-transform: uppercase; letter-spacing: 0.5px; transition: 0.2s; padding: 10px 12px; display: inline-block; }
         nav > ul > li > a { display: flex; align-items: center; gap: 6px; }
         nav a:hover { color: var(--accent); }
-
         .has-dropdown > a::after { content: "\f107"; font-family: "Font Awesome 6 Free"; font-weight: 900; font-size: 11px; margin-left: 4px; }
-        .dropdown {
-            display: none;
-            position: absolute;
-            top: 100%; left: 0;
-            background: var(--white);
-            min-width: 230px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.12);
-            border-radius: 6px;
-            padding: 8px 0;
-            list-style: none;
-            border-top: 3px solid var(--accent);
-        }
+        .dropdown { display: none; position: absolute; top: 100%; left: 0; background: var(--white); min-width: 240px; box-shadow: 0 10px 25px rgba(0,0,0,0.12); border-radius: 6px; padding: 8px 0; list-style: none; border-top: 3px solid var(--accent); }
         .has-dropdown:hover .dropdown { display: block; }
         .dropdown li a { display: block; padding: 10px 18px; font-size: 13px; text-transform: none; font-weight: 600; color: var(--primary-light); }
         .dropdown li a:hover { background: var(--light-bg); color: var(--accent); }
-
-        .btn-cta {
-            background-color: var(--accent) !important;
-            color: var(--white) !important;
-            padding: 10px 20px !important;
-            border-radius: 4px;
-            font-weight: 700 !important;
-            transition: 0.3s !important;
-        }
+        .btn-cta { background-color: var(--accent) !important; color: var(--white) !important; padding: 10px 20px !important; border-radius: 4px; font-weight: 700 !important; }
         .btn-cta:hover { background-color: var(--primary) !important; }
-
         .menu-toggle { display: none; font-size: 24px; cursor: pointer; color: var(--primary); }
 
-        /* HERO SECTION */
+        /* HERO — tipografía masiva estilo CAEM */
         .hero {
-            background: linear-gradient(180deg, rgba(44,74,62,0.88), rgba(44,74,62,0.82)), url("./Imagenesmass/fondo.png") center/cover no-repeat;
+            background: linear-gradient(120deg, rgba(44,74,62,0.92), rgba(58,95,82,0.86)), url("./Imagenesmass/fondo.png") center/cover no-repeat;
             color: var(--white);
-            padding: 90px 8% 60px;
-            text-align: left;
+            padding: 90px 8% 70px;
         }
-        .hero-content { max-width: 800px; }
-        .hero-badge { display: inline-block; background-color: var(--accent); color: var(--white); font-size: 12px; font-weight: 800; padding: 4px 12px; border-radius: 3px; text-transform: uppercase; margin-bottom: 15px; }
-        .hero h1 { font-size: 44px; font-weight: 800; line-height: 1.2; margin-bottom: 20px; }
-        .hero p { font-size: 18px; margin-bottom: 30px; opacity: 0.9; max-width: 650px; }
+        .hero-content { max-width: 850px; }
+        .hero-badge { display: inline-block; background-color: var(--accent); color: var(--white); font-size: 12px; font-weight: 800; padding: 4px 14px; border-radius: 3px; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 18px; }
+        .hero h1 { font-size: 48px; font-weight: 900; line-height: 1.12; text-transform: uppercase; margin-bottom: 8px; }
+        .hero h1 .accent-line { color: var(--accent); }
+        .hero p { font-size: 17px; margin: 20px 0 32px; opacity: 0.92; max-width: 640px; }
         .hero-buttons { display: flex; gap: 15px; flex-wrap: wrap; }
+        .btn-primary-hero { background-color: var(--accent); color: var(--white); padding: 14px 28px; text-decoration: none; font-weight: 700; border-radius: 4px; transition: 0.3s; cursor: pointer; border: none; font-size: 15px; }
+        .btn-primary-hero:hover { background-color: var(--white); color: var(--primary); }
+        .btn-secondary-hero { background-color: transparent; color: var(--white); border: 2px solid var(--white); padding: 12px 26px; text-decoration: none; font-weight: 600; border-radius: 4px; transition: 0.3s; font-size: 15px; }
+        .btn-secondary-hero:hover { background-color: rgba(255,255,255,0.12); }
 
-        .btn-primary-hero {
-            background-color: var(--accent);
-            color: var(--white);
-            padding: 14px 28px;
-            text-decoration: none;
-            font-weight: 700;
-            border-radius: 4px;
-            transition: 0.3s;
-            cursor: pointer;
-            border: none;
-            font-size: 15px;
-        }
-        .btn-primary-hero:hover { background-color: var(--primary-light); }
-
-        .btn-secondary-hero {
-            background-color: transparent;
-            color: var(--white);
-            border: 2px solid var(--white);
-            padding: 12px 26px;
-            text-decoration: none;
-            font-weight: 600;
-            border-radius: 4px;
-            transition: 0.3s;
-            font-size: 15px;
-        }
-        .btn-secondary-hero:hover { background-color: rgba(255,255,255,0.1); }
-
-        /* CARRUSEL "CONOCE NUESTROS CURSOS" (estilo funcener.org, con paleta Mass Ágora) */
+        /* CARRUSEL DE CAPACITACIONES (funcener) */
         .cursos-carrusel-wrap { background: var(--primary); padding: 0 8% 55px; }
-        .cursos-carrusel-title { color: var(--white); text-align: center; padding-top: 10px; font-size: 22px; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 25px; }
-        .cursos-carrusel {
-            display: flex;
-            gap: 18px;
-            overflow-x: auto;
-            scroll-snap-type: x mandatory;
-            padding-bottom: 10px;
-        }
+        .cursos-carrusel-title { color: var(--white); text-align: center; padding-top: 12px; font-size: 20px; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 25px; opacity: 0.9; }
+        .cursos-carrusel { display: flex; gap: 18px; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 10px; }
         .cursos-carrusel::-webkit-scrollbar { height: 6px; }
         .cursos-carrusel::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 10px; }
-        .curso-slide {
-            scroll-snap-align: start;
-            flex: 0 0 240px;
-            background: var(--primary-light);
-            border-radius: 8px;
-            overflow: hidden;
-            text-decoration: none;
-            color: var(--white);
-            position: relative;
-            transition: transform 0.3s;
-        }
+        .curso-slide { scroll-snap-align: start; flex: 0 0 230px; background: var(--primary-light); border-radius: 8px; overflow: hidden; text-decoration: none; color: var(--white); position: relative; transition: transform 0.3s; }
         .curso-slide:hover { transform: translateY(-6px); }
-        .curso-slide .num { position: absolute; top: 12px; left: 12px; background: var(--accent); width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 13px; z-index: 2; }
-        .curso-slide img { height: 150px; width: 100%; object-fit: cover; }
-        .curso-slide .curso-info { padding: 16px; }
-        .curso-slide h4 { font-size: 15px; margin-bottom: 6px; }
+        .curso-slide .num { position: absolute; top: 12px; left: 12px; background: var(--accent); width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 13px; z-index: 2; }
+        .curso-slide img { height: 140px; width: 100%; object-fit: cover; }
+        .curso-slide .curso-info { padding: 15px; }
+        .curso-slide h4 { font-size: 14.5px; margin-bottom: 6px; }
         .curso-slide .ver-mas { font-size: 12px; color: var(--accent); font-weight: 700; text-transform: uppercase; }
 
-        /* SECCIÓN METRICAS / RANGOS DE IMPACTO */
-        .stats-bar { background: var(--white); padding: 30px 8%; display: flex; justify-content: space-around; flex-wrap: wrap; gap: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.03); margin-top: -30px; position: relative; z-index: 10; border-radius: 6px; }
-        .stat-item { text-align: center; }
-        .stat-item h3 { font-size: 28px; color: var(--accent); font-weight: 800; }
-        .stat-item p { font-size: 13px; color: var(--text-gray); font-weight: 600; text-transform: uppercase; }
+        /* STATS ANIMADOS (CAEM) */
+        .stats-bar { background: var(--white); padding: 35px 8%; display: flex; justify-content: space-around; flex-wrap: wrap; gap: 25px; box-shadow: 0 4px 15px rgba(0,0,0,0.03); margin-top: -30px; position: relative; z-index: 10; border-radius: 6px; max-width: 1200px; margin-left: auto; margin-right: auto; }
+        .stat-item { text-align: center; display: flex; flex-direction: column; align-items: center; gap: 8px; }
+        .stat-item .stat-icon { width: 56px; height: 56px; border-radius: 50%; background: var(--light-bg); display: flex; align-items: center; justify-content: center; font-size: 24px; color: var(--accent); }
+        .stat-item h3 { font-size: 30px; color: var(--primary); font-weight: 800; }
+        .stat-item p { font-size: 12.5px; color: var(--text-gray); font-weight: 600; text-transform: uppercase; max-width: 170px; }
 
         /* TITULOS DE SECCION */
-        section { padding: 70px 8%; }
+        section { padding: 75px 8%; }
         .section-header { text-align: center; margin-bottom: 50px; }
-        .section-header h2 { font-size: 32px; color: var(--primary); font-weight: 800; text-transform: uppercase; }
-        .section-header p { color: var(--text-gray); max-width: 600px; margin: 10px auto 0; }
+        .section-header .eyebrow { color: var(--accent); font-weight: 800; font-size: 13px; text-transform: uppercase; letter-spacing: 2px; }
+        .section-header h2 { font-size: 34px; color: var(--primary); font-weight: 900; text-transform: uppercase; margin-top: 6px; }
+        .section-header p { color: var(--text-gray); max-width: 620px; margin: 12px auto 0; }
         .divider { width: 50px; height: 3px; background-color: var(--accent); margin: 15px auto 0; }
 
+        /* LO QUE HACEMOS (CAEM) */
+        .hacemos-strip { background: var(--light-bg); padding: 55px 8%; }
+        .hacemos-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 25px; max-width: 1100px; margin: 0 auto; }
+        .hacemos-item { background: var(--white); border-radius: 8px; padding: 30px 20px; text-align: center; border: 1px solid var(--border); transition: 0.3s; }
+        .hacemos-item:hover { border-color: var(--accent); transform: translateY(-4px); box-shadow: 0 10px 22px rgba(0,0,0,0.06); }
+        .hacemos-item i { font-size: 34px; color: var(--accent); margin-bottom: 14px; }
+        .hacemos-item h4 { font-size: 15px; color: var(--primary); text-transform: uppercase; letter-spacing: 0.5px; }
+
+        /* NUESTRA EXPERIENCIA (CAEM: tres columnas grandes) */
+        .experiencia-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 35px; }
+        .experiencia-card { border-left: 4px solid var(--accent); padding-left: 22px; }
+        .experiencia-card i { font-size: 30px; color: var(--accent); margin-bottom: 14px; display: block; }
+        .experiencia-card h3 { font-size: 20px; color: var(--primary); text-transform: uppercase; margin-bottom: 10px; letter-spacing: 0.5px; }
+        .experiencia-card p { color: var(--text-gray); font-size: 14.5px; }
+
         /* NOSOTROS - TARJETAS */
-        .nosotros-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-            margin-top: 20px;
-        }
-        .nosotros-card {
-            background: var(--white);
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            padding: 40px 20px;
-            text-align: center;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.02);
-            transition: transform 0.3s, box-shadow 0.3s;
-            cursor: pointer;
-        }
-        .nosotros-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
-            border-bottom: 4px solid var(--accent);
-        }
-        .nosotros-card i {
-            font-size: 45px;
-            color: var(--accent);
-            margin-bottom: 20px;
-        }
-        .nosotros-card h3 {
-            font-size: 22px;
-            color: var(--primary);
-            margin-bottom: 15px;
-        }
-        .btn-leer {
-            color: var(--accent);
-            font-weight: 700;
-            font-size: 14px;
-            display: inline-flex;
-            align-items: center;
-            gap: 5px;
-            transition: color 0.3s;
-        }
-        .nosotros-card:hover .btn-leer {
-            color: var(--primary);
-        }
+        .nosotros-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-top: 20px; }
+        .nosotros-card { background: var(--white); border: 1px solid var(--border); border-radius: 8px; padding: 40px 20px; text-align: center; box-shadow: 0 4px 10px rgba(0,0,0,0.02); transition: transform 0.3s, box-shadow 0.3s; cursor: pointer; }
+        .nosotros-card:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0,0,0,0.08); border-bottom: 4px solid var(--accent); }
+        .nosotros-card i { font-size: 45px; color: var(--accent); margin-bottom: 20px; }
+        .nosotros-card h3 { font-size: 22px; color: var(--primary); margin-bottom: 15px; }
+        .btn-leer { color: var(--accent); font-weight: 700; font-size: 14px; display: inline-flex; align-items: center; gap: 5px; transition: color 0.3s; }
+        .nosotros-card:hover .btn-leer { color: var(--primary); }
+
+        /* OFERTA ACADÉMICA — PESTAÑAS INTERACTIVAS (CAEM, pieza estrella) */
+        .oferta-section { background: var(--primary); color: var(--white); }
+        .oferta-section .section-header h2, .oferta-section .section-header .eyebrow { color: var(--white); }
+        .oferta-section .section-header p { color: #cfdad3; }
+        .oferta-tabs { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; margin-bottom: 40px; }
+        .oferta-tab { background: var(--primary-light); border: 2px solid transparent; color: var(--white); padding: 10px 18px; border-radius: 30px; font-size: 13px; font-weight: 700; cursor: pointer; transition: 0.25s; display: flex; align-items: center; gap: 8px; }
+        .oferta-tab i { font-size: 15px; }
+        .oferta-tab:hover { border-color: var(--accent); }
+        .oferta-tab.active { background: var(--accent); }
+        .oferta-panel { background: var(--white); color: var(--dark); border-radius: 10px; overflow: hidden; display: grid; grid-template-columns: 1fr 1fr; max-width: 1050px; margin: 0 auto; box-shadow: 0 20px 45px rgba(0,0,0,0.25); }
+        .oferta-panel-img { min-height: 320px; background-size: cover; background-position: center; }
+        .oferta-panel-body { padding: 40px; }
+        .oferta-panel-body .tipo-badge { display: inline-block; background: var(--light-bg); color: var(--primary); font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.5px; padding: 5px 12px; border-radius: 20px; margin-bottom: 14px; }
+        .oferta-panel-body h3 { font-size: 24px; color: var(--primary); margin-bottom: 8px; }
+        .oferta-panel-body .subtitulo { color: var(--accent); font-weight: 700; font-size: 14.5px; margin-bottom: 20px; }
+        .oferta-meta { display: flex; flex-direction: column; gap: 10px; margin-bottom: 20px; }
+        .oferta-meta div { display: flex; align-items: center; gap: 10px; font-size: 13.5px; color: var(--text-gray); }
+        .oferta-meta i { color: var(--accent); width: 18px; text-align: center; }
+        .oferta-panel-body .descripcion { color: var(--text-gray); font-size: 14.5px; margin-bottom: 25px; }
+        @media(max-width: 800px){ .oferta-panel { grid-template-columns: 1fr; } .oferta-panel-img { min-height: 220px; } }
 
         /* SERVICIOS */
         .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
-        .service-card {
-            background: var(--white);
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            padding: 35px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.02);
-            transition: transform 0.3s, box-shadow 0.3s;
-            display: flex;
-            flex-direction: column;
-            position: relative;
-        }
+        .service-card { background: var(--white); border: 1px solid var(--border); border-radius: 8px; padding: 35px; box-shadow: 0 4px 10px rgba(0,0,0,0.02); transition: transform 0.3s, box-shadow 0.3s; display: flex; flex-direction: column; position: relative; }
         .service-card:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0,0,0,0.08); }
         .service-card.featured { border-top: 5px solid var(--accent); }
         .service-icon { width: 60px; height: 60px; background: var(--light-bg); border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 26px; color: var(--accent); margin-bottom: 20px; }
         .service-card h3 { font-size: 22px; color: var(--primary); margin-bottom: 12px; }
         .service-card p { color: var(--text-gray); font-size: 14px; margin-bottom: 25px; flex-grow: 1; }
-        .btn-card-action {
-            display: inline-block;
-            text-align: center;
-            background: var(--primary);
-            color: var(--white);
-            padding: 12px;
-            border-radius: 4px;
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 14px;
-            cursor: pointer;
-            border: none;
-            transition: 0.2s;
-        }
+        .btn-card-action { display: inline-block; text-align: center; background: var(--primary); color: var(--white); padding: 12px; border-radius: 4px; text-decoration: none; font-weight: 700; font-size: 14px; cursor: pointer; border: none; transition: 0.2s; }
         .btn-card-action:hover { background: var(--accent); }
 
-        /* BLOG (sección nueva) */
+        /* BLOG */
         .blog-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
-        .blog-card {
-            background: var(--white);
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.02);
-            transition: transform 0.3s, box-shadow 0.3s;
-            display: flex;
-            flex-direction: column;
-        }
+        .blog-card { background: var(--white); border: 1px solid var(--border); border-radius: 8px; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.02); transition: transform 0.3s, box-shadow 0.3s; display: flex; flex-direction: column; }
         .blog-card:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0,0,0,0.08); }
         .blog-card img { height: 190px; object-fit: cover; }
         .blog-card-body { padding: 24px; display: flex; flex-direction: column; flex-grow: 1; }
@@ -275,25 +173,14 @@
         .blog-card p { color: var(--text-gray); font-size: 14px; margin-bottom: 20px; flex-grow: 1; }
         .blog-meta { font-size: 12px; color: var(--text-gray); margin-bottom: 14px; }
         .blog-meta i { color: var(--accent); margin-right: 4px; }
-        .btn-blog-leer {
-            align-self: flex-start;
-            background: transparent;
-            border: 2px solid var(--primary);
-            color: var(--primary);
-            padding: 8px 18px;
-            border-radius: 4px;
-            font-weight: 700;
-            font-size: 13px;
-            cursor: pointer;
-            transition: 0.3s;
-        }
+        .btn-blog-leer { align-self: flex-start; background: transparent; border: 2px solid var(--primary); color: var(--primary); padding: 8px 18px; border-radius: 4px; font-weight: 700; font-size: 13px; cursor: pointer; transition: 0.3s; }
         .btn-blog-leer:hover { background: var(--primary); color: var(--white); }
 
         /* GALERIA */
         .galeria-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 15px; }
         .galeria-grid img { width: 100%; height: 200px; object-fit: cover; border-radius: 6px; border: 1px solid var(--border); }
 
-        /* FOOTER (estilo funcener.org: incluye mapa + redes) */
+        /* FOOTER */
         footer { background: var(--primary); color: var(--white); padding: 50px 8% 20px; font-size: 14px; }
         .footer-grid { display: grid; grid-template-columns: 1.2fr 1fr 1fr; gap: 40px; margin-bottom: 40px; }
         .footer-col h4 { font-size: 16px; margin-bottom: 20px; color: var(--accent); text-transform: uppercase; }
@@ -305,132 +192,37 @@
         .footer-social-row a:hover { background: var(--accent); }
         .footer-bottom { text-align: center; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px; color: #b8c9be; font-size: 13px; }
 
-        /* BOTONES FLOTANTES DE REDES SOCIALES */
-        .floating-social-container {
-            position: fixed;
-            bottom: 25px;
-            right: 25px;
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-            z-index: 1500;
-        }
-
-        .btn-floating {
-            width: 55px;
-            height: 55px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--white);
-            font-size: 26px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.25);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            text-decoration: none;
-        }
-
-        .btn-floating:hover {
-            transform: scale(1.1);
-            box-shadow: 0 6px 16px rgba(0,0,0,0.35);
-        }
-
+        /* FLOTANTES */
+        .floating-social-container { position: fixed; bottom: 25px; right: 25px; display: flex; flex-direction: column; gap: 12px; z-index: 1500; }
+        .btn-floating { width: 55px; height: 55px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--white); font-size: 26px; box-shadow: 0 4px 12px rgba(0,0,0,0.25); transition: transform 0.3s ease, box-shadow 0.3s ease; text-decoration: none; }
+        .btn-floating:hover { transform: scale(1.1); box-shadow: 0 6px 16px rgba(0,0,0,0.35); }
         .btn-floating-whatsapp { background-color: var(--whatsapp-green); }
         .btn-floating-instagram { background: var(--instagram-grad); }
 
-        /* VENTANAS MODALES */
-        .modal-overlay, .modal {
-            display: none;
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(44, 74, 62, 0.85);
-            backdrop-filter: blur(4px);
-            z-index: 2000;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-        }
-        .modal-container, .modal-content {
-            background: var(--white);
-            width: 100%;
-            max-width: 900px;
-            max-height: 90vh;
-            border-radius: 8px;
-            overflow-y: auto;
-            position: relative;
-            padding: 40px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
-        }
+        /* MODALES */
+        .modal-overlay, .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(44, 74, 62, 0.85); backdrop-filter: blur(4px); z-index: 2000; justify-content: center; align-items: center; padding: 20px; }
+        .modal-container, .modal-content { background: var(--white); width: 100%; max-width: 900px; max-height: 90vh; border-radius: 8px; overflow-y: auto; position: relative; padding: 40px; box-shadow: 0 20px 40px rgba(0,0,0,0.3); }
         #modalInfo .modal-content, #modalBlog .modal-content { max-width: 650px; }
-
-        .modal-close, .cerrar {
-            position: absolute;
-            top: 20px; right: 25px;
-            font-size: 28px;
-            color: var(--text-gray);
-            cursor: pointer;
-            line-height: 1;
-        }
+        .modal-close, .cerrar { position: absolute; top: 20px; right: 25px; font-size: 28px; color: var(--text-gray); cursor: pointer; line-height: 1; }
         .modal-close:hover, .cerrar:hover { color: var(--primary); }
-
         .modal-title { margin-bottom: 25px; }
         .modal-title h2, #modal-titulo, #blog-titulo { color: var(--primary); font-size: 26px; margin-bottom: 15px; }
         #modal-texto, #blog-texto { color: var(--text-gray); font-size: 15px; line-height: 1.8; }
         #blog-img { width: 100%; height: 220px; object-fit: cover; border-radius: 6px; margin-bottom: 20px; }
         #blog-tag-modal { color: var(--accent); font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; display: block; margin-bottom: 6px; }
-
-        .course-item {
-            border: 1px solid var(--border);
-            border-left: 4px solid var(--accent);
-            border-radius: 6px;
-            padding: 20px;
-            margin-bottom: 20px;
-            background: var(--light-bg);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 15px;
-        }
+        .course-item { border: 1px solid var(--border); border-left: 4px solid var(--accent); border-radius: 6px; padding: 20px; margin-bottom: 20px; background: var(--light-bg); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px; }
         .course-info h3 { font-size: 18px; color: var(--primary); margin-bottom: 5px; }
         .course-info p { font-size: 13px; color: var(--text-gray); margin-bottom: 8px; }
-        .course-tags span {
-            background: #e2ede5;
-            color: var(--primary);
-            font-size: 11px;
-            padding: 3px 8px;
-            border-radius: 3px;
-            font-weight: 600;
-            margin-right: 5px;
-        }
-        .btn-course-enroll {
-            background: var(--whatsapp-green);
-            color: white;
-            text-decoration: none;
-            padding: 8px 16px;
-            border-radius: 4px;
-            font-weight: 700;
-            font-size: 13px;
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            transition: background 0.3s;
-        }
+        .course-tags span { background: #e2ede5; color: var(--primary); font-size: 11px; padding: 3px 8px; border-radius: 3px; font-weight: 600; margin-right: 5px; }
+        .btn-course-enroll { background: var(--whatsapp-green); color: white; text-decoration: none; padding: 8px 16px; border-radius: 4px; font-weight: 700; font-size: 13px; display: inline-flex; align-items: center; gap: 6px; transition: background 0.3s; }
         .btn-course-enroll:hover { background: #1ebc57; }
 
         /* RESPONSIVE */
-        @media(max-width: 900px){
-            .footer-grid { grid-template-columns: 1fr 1fr; }
-        }
+        @media(max-width: 900px){ .footer-grid { grid-template-columns: 1fr 1fr; } }
         @media(max-width: 768px){
             .topbar { display: none; }
             .menu-toggle { display: block; }
-            nav > ul {
-                position: absolute; top: 100%; right: 0; left: 0;
-                background: var(--white); flex-direction: column;
-                padding: 15px; display: none; border-bottom: 1px solid var(--border);
-                max-height: 80vh; overflow-y: auto;
-            }
+            nav > ul { position: absolute; top: 100%; right: 0; left: 0; background: var(--white); flex-direction: column; padding: 15px; display: none; border-bottom: 1px solid var(--border); max-height: 80vh; overflow-y: auto; }
             nav > ul.active { display: flex; align-items: stretch; }
             nav > ul > li { width: 100%; }
             .dropdown { position: static; box-shadow: none; border-radius: 0; padding-left: 15px; border-top: none; border-left: 2px solid var(--accent); }
@@ -440,6 +232,8 @@
             .stats-bar { flex-direction: column; }
             .footer-grid { grid-template-columns: 1fr; }
             .cursos-carrusel-wrap { padding: 0 5% 40px; }
+            .oferta-tabs { gap: 6px; }
+            .oferta-tab span { display: none; }
             .floating-social-container { bottom: 15px; right: 15px; }
             .btn-floating { width: 48px; height: 48px; font-size: 22px; }
         }
@@ -460,18 +254,15 @@
         </div>
     </div>
 
-    <!-- NAVBAR CON SUBMENÚS -->
+    <!-- NAVBAR -->
     <header>
         <nav>
             <a href="#" class="logo">
                 <img src="./Imagenesmass/logo.png" alt="Mass Ágora Logo" style="height:50px;">
             </a>
-            <div class="menu-toggle" onclick="toggleMenu()">
-                <i class="fa-solid fa-bars"></i>
-            </div>
+            <div class="menu-toggle" onclick="toggleMenu()"><i class="fa-solid fa-bars"></i></div>
             <ul id="menu">
                 <li><a href="#">Inicio</a></li>
-
                 <li class="has-dropdown" onclick="toggleSubmenu(this)">
                     <a href="javascript:void(0)">Nosotros</a>
                     <ul class="dropdown">
@@ -480,173 +271,191 @@
                         <li><a href="javascript:void(0)" onclick="abrirModalInfo('historia')">Historia</a></li>
                     </ul>
                 </li>
-
                 <li class="has-dropdown" onclick="toggleSubmenu(this)">
                     <a href="javascript:void(0)">Servicios</a>
                     <ul class="dropdown">
+                        <li><a href="#oferta">Oferta Académica</a></li>
                         <li><a href="javascript:void(0)" onclick="abrirModalCapacitaciones()">Capacitaciones</a></li>
                         <li><a href="#servicios">Espacios Sostenibles</a></li>
                     </ul>
                 </li>
-
                 <li><a href="#galeria">Proyectos</a></li>
-
                 <li class="has-dropdown" onclick="toggleSubmenu(this)">
                     <a href="javascript:void(0)">Comunicaciones</a>
-                    <ul class="dropdown">
-                        <li><a href="#blog">Blog</a></li>
-                    </ul>
+                    <ul class="dropdown"><li><a href="#blog">Blog</a></li></ul>
                 </li>
-
                 <li><a href="#contacto" class="btn-cta">Contactar</a></li>
             </ul>
         </nav>
     </header>
 
-    <!-- HERO SECTION -->
+    <!-- HERO -->
     <section class="hero">
         <div class="hero-content">
             <span class="hero-badge">Conexión Ambiental</span>
-            <h1>Capacitación Ambiental y Transformación de Espacios Sostenibles</h1>
+            <h1>Formación Ambiental y <span class="accent-line">Transformación de Espacios Sostenibles</span></h1>
             <p>Empoderamos organizaciones, empresas y comunidades en temas ambientales como estrategia de sostenibilidad y acciones frente al cambio climático a través de programas educativos y diseño de infraestructura verde que inspiran y promueven una conexión consciente con el medio ambiente.</p>
             <div class="hero-buttons">
-                <button onclick="abrirModalCapacitaciones()" class="btn-primary-hero">
-                    <i class="fa-solid fa-graduation-cap"></i> Explorar Capacitaciones
-                </button>
+                <button onclick="abrirModalCapacitaciones()" class="btn-primary-hero"><i class="fa-solid fa-graduation-cap"></i> Explorar Capacitaciones</button>
                 <a href="#servicios" class="btn-secondary-hero">Espacios Sostenibles</a>
             </div>
         </div>
     </section>
 
-    <!-- CARRUSEL "CONOCE NUESTROS CURSOS" (estilo funcener.org) -->
+    <!-- CARRUSEL DE CAPACITACIONES -->
     <div class="cursos-carrusel-wrap">
         <h3 class="cursos-carrusel-title">Conoce Nuestras Capacitaciones</h3>
         <div class="cursos-carrusel">
             <a href="javascript:void(0)" onclick="abrirModalCapacitaciones()" class="curso-slide">
                 <span class="num">1</span>
                 <img src="./Imagenesmass/Capacitacion.png" alt="Agroecología y Agricultura Urbana">
-                <div class="curso-info">
-                    <h4>Agroecología y Agricultura Urbana</h4>
-                    <span class="ver-mas">Conoce más <i class="fa-solid fa-arrow-right"></i></span>
-                </div>
+                <div class="curso-info"><h4>Agroecología y Agricultura Urbana</h4><span class="ver-mas">Conoce más <i class="fa-solid fa-arrow-right"></i></span></div>
             </a>
             <a href="javascript:void(0)" onclick="abrirModalCapacitaciones()" class="curso-slide">
                 <span class="num">2</span>
                 <img src="./Imagenesmass/CAPACITACION1.png" alt="Residuos y Economía Circular">
-                <div class="curso-info">
-                    <h4>Residuos y Economía Circular</h4>
-                    <span class="ver-mas">Conoce más <i class="fa-solid fa-arrow-right"></i></span>
-                </div>
+                <div class="curso-info"><h4>Residuos y Economía Circular</h4><span class="ver-mas">Conoce más <i class="fa-solid fa-arrow-right"></i></span></div>
             </a>
             <a href="javascript:void(0)" onclick="abrirModalCapacitaciones()" class="curso-slide">
                 <span class="num">3</span>
                 <img src="./Imagenesmass/MURO.jpeg" alt="Compostaje y Manejo de Residuos Orgánicos">
-                <div class="curso-info">
-                    <h4>Compostaje y Residuos Orgánicos</h4>
-                    <span class="ver-mas">Conoce más <i class="fa-solid fa-arrow-right"></i></span>
-                </div>
+                <div class="curso-info"><h4>Compostaje y Residuos Orgánicos</h4><span class="ver-mas">Conoce más <i class="fa-solid fa-arrow-right"></i></span></div>
             </a>
             <a href="javascript:void(0)" onclick="abrirModalCapacitaciones()" class="curso-slide">
                 <span class="num">4</span>
                 <img src="./Imagenesmass/PAISAJISMO1.jpeg" alt="Campañas de Educación y Sensibilización">
-                <div class="curso-info">
-                    <h4>Educación y Sensibilización</h4>
-                    <span class="ver-mas">Conoce más <i class="fa-solid fa-arrow-right"></i></span>
-                </div>
+                <div class="curso-info"><h4>Educación y Sensibilización</h4><span class="ver-mas">Conoce más <i class="fa-solid fa-arrow-right"></i></span></div>
             </a>
             <a href="#servicios" class="curso-slide">
                 <span class="num">5</span>
                 <img src="./Imagenesmass/MURO1.jpeg" alt="Espacios Sostenibles">
-                <div class="curso-info">
-                    <h4>Muros Verdes y Paisajismo</h4>
-                    <span class="ver-mas">Cotizar <i class="fa-solid fa-arrow-right"></i></span>
-                </div>
+                <div class="curso-info"><h4>Muros Verdes y Paisajismo</h4><span class="ver-mas">Cotizar <i class="fa-solid fa-arrow-right"></i></span></div>
             </a>
         </div>
     </div>
 
-    <!-- BARRA DE IMPACTO -->
+    <!-- STATS ANIMADOS -->
     <div style="padding: 0 8%;">
         <div class="stats-bar">
             <div class="stat-item">
-                <h3>+200</h3>
+                <div class="stat-icon"><i class="fa-solid fa-user-graduate"></i></div>
+                <h3><span class="counter" data-target="200">0</span>+</h3>
                 <p>Personas Capacitadas</p>
             </div>
             <div class="stat-item">
-                <h3>100%</h3>
+                <div class="stat-icon"><i class="fa-solid fa-seedling"></i></div>
+                <h3><span class="counter" data-target="100">0</span>%</h3>
                 <p>Enfoque Agroecológico</p>
             </div>
             <div class="stat-item">
+                <div class="stat-icon"><i class="fa-solid fa-handshake"></i></div>
                 <h3>B2B & B2C</h3>
                 <p>Soluciones Corporativas y Residenciales</p>
             </div>
         </div>
     </div>
 
-    <!-- SECCIÓN NOSOTROS -->
+    <!-- LO QUE HACEMOS -->
+    <div class="hacemos-strip">
+        <div class="section-header" style="margin-bottom:35px;">
+            <span class="eyebrow">Nuestro Enfoque</span>
+            <h2>Lo Que Hacemos</h2>
+            <div class="divider"></div>
+        </div>
+        <div class="hacemos-grid">
+            <div class="hacemos-item"><i class="fa-solid fa-chalkboard-user"></i><h4>Talleres</h4></div>
+            <div class="hacemos-item"><i class="fa-solid fa-users-line"></i><h4>Seminarios</h4></div>
+            <div class="hacemos-item"><i class="fa-solid fa-graduation-cap"></i><h4>Capacitaciones</h4></div>
+            <div class="hacemos-item"><i class="fa-solid fa-leaf"></i><h4>Diseño de Espacios Verdes</h4></div>
+        </div>
+    </div>
+
+    <!-- SOBRE NOSOTROS -->
     <section id="historia">
         <div class="section-header">
+            <span class="eyebrow">Quiénes Somos</span>
             <h2>Sobre Nosotros</h2>
             <div class="divider"></div>
         </div>
         <div class="nosotros-container">
-            <div class="nosotros-card" onclick="abrirModalInfo('mision')">
-                <i class="fa-solid fa-seedling"></i>
-                <h3>Misión</h3>
-                <span class="btn-leer">Leer más <i class="fa-solid fa-arrow-right"></i></span>
-            </div>
+            <div class="nosotros-card" onclick="abrirModalInfo('mision')"><i class="fa-solid fa-seedling"></i><h3>Misión</h3><span class="btn-leer">Leer más <i class="fa-solid fa-arrow-right"></i></span></div>
+            <div class="nosotros-card" onclick="abrirModalInfo('vision')"><i class="fa-solid fa-earth-americas"></i><h3>Visión</h3><span class="btn-leer">Leer más <i class="fa-solid fa-arrow-right"></i></span></div>
+            <div class="nosotros-card" onclick="abrirModalInfo('historia')"><i class="fa-solid fa-book-open"></i><h3>Historia</h3><span class="btn-leer">Leer más <i class="fa-solid fa-arrow-right"></i></span></div>
+        </div>
+    </section>
 
-            <div class="nosotros-card" onclick="abrirModalInfo('vision')">
-                <i class="fa-solid fa-earth-americas"></i>
-                <h3>Visión</h3>
-                <span class="btn-leer">Leer más <i class="fa-solid fa-arrow-right"></i></span>
+    <!-- NUESTRA EXPERIENCIA -->
+    <section style="background: var(--light-bg);">
+        <div class="section-header">
+            <span class="eyebrow">Trayectoria</span>
+            <h2>Nuestra Experiencia</h2>
+            <div class="divider"></div>
+        </div>
+        <div class="experiencia-grid">
+            <div class="experiencia-card">
+                <i class="fa-solid fa-hand-holding-heart"></i>
+                <h3>Asesorías Integrales</h3>
+                <p>Acompañamos a organizaciones y particulares en el diseño de soluciones ambientales, desde la agroecología hasta la infraestructura verde, adaptadas a cada territorio.</p>
             </div>
-
-            <div class="nosotros-card" onclick="abrirModalInfo('historia')">
-                <i class="fa-solid fa-book-open"></i>
-                <h3>Historia</h3>
-                <span class="btn-leer">Leer más <i class="fa-solid fa-arrow-right"></i></span>
+            <div class="experiencia-card">
+                <i class="fa-solid fa-bullhorn"></i>
+                <h3>Campañas Educativas Ambientales</h3>
+                <p>Diseñamos estrategias de sensibilización y educación ambiental que conectan a empresas, comunidades e instituciones con la acción climática.</p>
+            </div>
+            <div class="experiencia-card">
+                <i class="fa-solid fa-people-group"></i>
+                <h3>Gestión y Alianzas</h3>
+                <p>Construimos procesos comunitarios y alianzas estratégicas que fortalecen la conexión ambiental y el impacto de cada proyecto.</p>
             </div>
         </div>
     </section>
 
-    <!-- SERVICIOS PRINCIPALES -->
-    <section id="servicios" style="background-color: var(--light-bg);">
+    <!-- OFERTA ACADÉMICA — PESTAÑAS INTERACTIVAS -->
+    <section id="oferta" class="oferta-section">
         <div class="section-header">
+            <span class="eyebrow">Formación Ambiental</span>
+            <h2>Oferta Académica</h2>
+            <div class="divider"></div>
+            <p>Programas soportados en las necesidades de empresas, instituciones y comunidades, con metodologías participativas y modalidad presencial o virtual.</p>
+        </div>
+
+        <div class="oferta-tabs" id="ofertaTabs"></div>
+        <div class="oferta-panel" id="ofertaPanel"></div>
+    </section>
+
+    <!-- SERVICIOS -->
+    <section id="servicios">
+        <div class="section-header">
+            <span class="eyebrow">Portafolio</span>
             <h2>Portafolio de Servicios</h2>
             <div class="divider"></div>
             <p>Líneas estratégicas desarrolladas para empresas, instituciones educativas y proyectos privados.</p>
         </div>
-
         <div class="services-grid">
             <div class="service-card featured">
                 <div class="service-icon"><i class="fa-solid fa-graduation-cap"></i></div>
                 <h3>Formación & Capacitaciones</h3>
                 <p>Nuestros programas se desarrollan mediante talleres ambientales, procesos de formación, campañas de educación y sensibilización, extensión y acompañamiento ambiental, proyectos pedagógicos y procesos comunitarios, adaptados a las necesidades de cada organización, territorio y comunidad, con metodologías participativas que facilitan el aprendizaje y promueven la acción ambiental.</p>
-                <button onclick="abrirModalCapacitaciones()" class="btn-card-action">
-                    Ver Oferta de Capacitaciones <i class="fa-solid fa-arrow-right"></i>
-                </button>
+                <button onclick="abrirModalCapacitaciones()" class="btn-card-action">Ver Oferta de Capacitaciones <i class="fa-solid fa-arrow-right"></i></button>
             </div>
-
             <div class="service-card">
                 <div class="service-icon"><i class="fa-solid fa-leaf"></i></div>
                 <h3>Espacios Sostenibles</h3>
-                <p>También aprendemos de los lugares que habitamos.
-                    Por eso diseñamos y transformamos espacios que permiten fortalecer los procesos de educación y conexión ambiental.</p>
+                <p>También aprendemos de los lugares que habitamos. Por eso diseñamos y transformamos espacios que permiten fortalecer los procesos de educación y conexión ambiental.</p>
                 <a href="https://wa.me/573115782633?text=Hola,%20deseo%20cotizar%20un%20proyecto%20de%20Paisajismo/Muro%20Verde" target="_blank" class="btn-card-action">Cotizar Proyecto</a>
             </div>
         </div>
     </section>
 
-    <!-- BLOG (NUEVA SECCIÓN) -->
-    <section id="blog">
+    <!-- BLOG -->
+    <section id="blog" style="background-color: var(--light-bg);">
         <div class="section-header">
+            <span class="eyebrow">Comunicaciones</span>
             <h2>Blog Mass Ágora</h2>
             <div class="divider"></div>
             <p>Artículos, historias y aprendizajes sobre agroecología, muros verdes y educación ambiental.</p>
         </div>
         <div class="blog-grid">
-
             <div class="blog-card">
                 <img src="./Imagenesmass/MURO2.jpeg" alt="Beneficios de los muros verdes">
                 <div class="blog-card-body">
@@ -657,7 +466,6 @@
                     <button class="btn-blog-leer" onclick="abrirModalBlog('muros')">Leer artículo</button>
                 </div>
             </div>
-
             <div class="blog-card">
                 <img src="./Imagenesmass/PAISAJISMO3.png" alt="Agricultura urbana">
                 <div class="blog-card-body">
@@ -668,7 +476,6 @@
                     <button class="btn-blog-leer" onclick="abrirModalBlog('huerta')">Leer artículo</button>
                 </div>
             </div>
-
             <div class="blog-card">
                 <img src="./Imagenesmass/CAPACITACION1.png" alt="Educación ambiental corporativa">
                 <div class="blog-card-body">
@@ -679,13 +486,13 @@
                     <button class="btn-blog-leer" onclick="abrirModalBlog('educacion')">Leer artículo</button>
                 </div>
             </div>
-
         </div>
     </section>
 
-    <!-- GALERIA / PROYECTOS -->
-    <section id="galeria" style="background-color: var(--light-bg);">
+    <!-- GALERIA -->
+    <section id="galeria">
         <div class="section-header">
+            <span class="eyebrow">Portafolio Visual</span>
             <h2>Galería de Experiencias</h2>
             <div class="divider"></div>
         </div>
@@ -708,15 +515,13 @@
         </div>
     </section>
 
-    <!-- FOOTER (con mapa, estilo funcener.org) -->
+    <!-- FOOTER -->
     <footer id="contacto">
         <div class="footer-grid">
             <div class="footer-col">
                 <h4>Mass Ágora</h4>
                 <p>Transformación ambiental, educación y consultoría sostenible.</p>
-                <div class="footer-map">
-                    <iframe src="https://www.google.com/maps?q=Bogotá,Colombia&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                </div>
+                <div class="footer-map"><iframe src="https://www.google.com/maps?q=Bogotá,Colombia&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
             </div>
             <div class="footer-col">
                 <h4>Contacto Directo</h4>
@@ -732,92 +537,63 @@
                 <h4>Atención</h4>
                 <p>Lunes a Viernes: 8:00 AM - 5:00 PM</p>
                 <p>Redes: @MAASSAGORA</p>
+                <p><a href="#oferta">Ver Oferta Académica</a></p>
                 <p><a href="#blog">Ver Blog</a></p>
-                <p><a href="javascript:void(0)" onclick="abrirModalCapacitaciones()">Ver Capacitaciones</a></p>
             </div>
         </div>
-        <div class="footer-bottom">
-            <p>© 2026 Mass Ágora. Todos los derechos reservados.</p>
-        </div>
+        <div class="footer-bottom"><p>© 2026 Mass Ágora. Todos los derechos reservados.</p></div>
     </footer>
 
-    <!-- BOTONES FLOTANTES -->
+    <!-- FLOTANTES -->
     <div class="floating-social-container">
-        <a href="https://www.instagram.com/massagora" target="_blank" class="btn-floating btn-floating-instagram" aria-label="Instagram">
-            <i class="fa-brands fa-instagram"></i>
-        </a>
-        <a href="https://wa.me/573115782633?text=Hola,%20me%20gustaría%20recibir%20información%20sobre%20sus%20servicios" target="_blank" class="btn-floating btn-floating-whatsapp" aria-label="WhatsApp">
-            <i class="fa-brands fa-whatsapp"></i>
-        </a>
+        <a href="https://www.instagram.com/massagora" target="_blank" class="btn-floating btn-floating-instagram" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+        <a href="https://wa.me/573115782633?text=Hola,%20me%20gustaría%20recibir%20información%20sobre%20sus%20servicios" target="_blank" class="btn-floating btn-floating-whatsapp" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
     </div>
 
-    <!-- VENTANA MODAL (CAPACITACIONES) -->
+    <!-- MODAL CAPACITACIONES -->
     <div id="modalCapacitaciones" class="modal-overlay">
         <div class="modal-container">
             <span class="modal-close" onclick="cerrarModalCapacitaciones()">&times;</span>
-
             <div class="modal-title">
                 <h2>Programa de Capacitaciones y Talleres</h2>
                 <p style="color: var(--text-gray);">Educamos a través de metodologías lúdicas, didácticas y experienciales, que facilitan el aprendizaje, promueven la participación y conectan el conocimiento ambiental con la acción.</p>
             </div>
-
             <div class="course-item">
                 <div class="course-info">
                     <h3>1. Agroecología y Agricultura Urbana</h3>
-                    <p>Principios agroecológicos, Huertas urbanas, Suelo y sustratos, Siembra y propagación, Abonos orgánicos,
-                        Manejo ecológico de plagas, Biodiversidad y sostenibilidad en la huerta.</p>
-                    <div class="course-tags">
-                        <span>Modalidad: Presencial/Virtual</span>
-                    </div>
+                    <p>Principios agroecológicos, Huertas urbanas, Suelo y sustratos, Siembra y propagación, Abonos orgánicos, Manejo ecológico de plagas, Biodiversidad y sostenibilidad en la huerta.</p>
+                    <div class="course-tags"><span>Modalidad: Presencial/Virtual</span></div>
                 </div>
-                <a href="https://wa.me/573115782633?text=Solicito%20información%20del%20Taller%20de%20Huertas%20Urbanas" target="_blank" class="btn-course-enroll">
-                    <i class="fa-brands fa-whatsapp"></i> Inscribirse / Cotizar
-                </a>
+                <a href="https://wa.me/573115782633?text=Solicito%20información%20del%20Taller%20de%20Huertas%20Urbanas" target="_blank" class="btn-course-enroll"><i class="fa-brands fa-whatsapp"></i> Inscribirse / Cotizar</a>
             </div>
-
             <div class="course-item">
                 <div class="course-info">
                     <h3>2. Residuos y Economía Circular</h3>
                     <p>Separación en la fuente, Aprovechamiento de residuos, Reciclaje y Consumo responsable.</p>
-                    <div class="course-tags">
-                        <span>Modalidad: Presencial/Virtual</span>
-                    </div>
+                    <div class="course-tags"><span>Modalidad: Presencial/Virtual</span></div>
                 </div>
-                <a href="https://wa.me/573115782633?text=Solicito%20información%20del%20Seminario%20de%20Agroecología%20Corporativa" target="_blank" class="btn-course-enroll">
-                    <i class="fa-brands fa-whatsapp"></i> Inscribirse / Cotizar
-                </a>
+                <a href="https://wa.me/573115782633?text=Solicito%20información%20del%20Seminario%20de%20Agroecología%20Corporativa" target="_blank" class="btn-course-enroll"><i class="fa-brands fa-whatsapp"></i> Inscribirse / Cotizar</a>
             </div>
-
             <div class="course-item">
                 <div class="course-info">
                     <h3>3. Compostaje y Manejo de Residuos Orgánicos</h3>
                     <p>Técnicas de transformación de residuos orgánicos en abonos para proyectos sostenibles.</p>
-                    <div class="course-tags">
-                        <span>Modalidad: Presencial</span>
-                    </div>
+                    <div class="course-tags"><span>Modalidad: Presencial</span></div>
                 </div>
-                <a href="https://wa.me/573115782633?text=Solicito%20información%20del%20Taller%20de%20Compostaje" target="_blank" class="btn-course-enroll">
-                    <i class="fa-brands fa-whatsapp"></i> Inscribirse / Cotizar
-                </a>
+                <a href="https://wa.me/573115782633?text=Solicito%20información%20del%20Taller%20de%20Compostaje" target="_blank" class="btn-course-enroll"><i class="fa-brands fa-whatsapp"></i> Inscribirse / Cotizar</a>
             </div>
-
             <div class="course-item">
                 <div class="course-info">
                     <h3>4. Campañas de Educación y Sensibilización</h3>
                     <p>Estrategias para promover cambios de comportamiento.</p>
-                    <div class="course-tags">
-                        <span>Modalidad: Presencial</span>
-                    </div>
+                    <div class="course-tags"><span>Modalidad: Presencial</span></div>
                 </div>
-                <a href="https://wa.me/573115782633?text=Solicito%20información%20de%20Capacitación%20Mantenimiento%20Muros%20Verdes" target="_blank" class="btn-course-enroll">
-                    <i class="fa-brands fa-whatsapp"></i> Inscribirse / Cotizar
-                </a>
+                <a href="https://wa.me/573115782633?text=Solicito%20información%20de%20Capacitación%20Mantenimiento%20Muros%20Verdes" target="_blank" class="btn-course-enroll"><i class="fa-brands fa-whatsapp"></i> Inscribirse / Cotizar</a>
             </div>
-
         </div>
     </div>
 
-    <!-- VENTANA MODAL DINÁMICO (NOSOTROS) -->
+    <!-- MODAL NOSOTROS -->
     <div id="modalInfo" class="modal">
         <div class="modal-content">
             <span class="cerrar" onclick="cerrarModalInfo()">&times;</span>
@@ -826,7 +602,7 @@
         </div>
     </div>
 
-    <!-- VENTANA MODAL DINÁMICO (BLOG) -->
+    <!-- MODAL BLOG -->
     <div id="modalBlog" class="modal">
         <div class="modal-content">
             <span class="cerrar" onclick="cerrarModalBlog()">&times;</span>
@@ -839,71 +615,29 @@
 
     <!-- JAVASCRIPT -->
     <script>
-        function toggleMenu(){
-            document.getElementById("menu").classList.toggle("active");
-        }
-
-        // En móvil, los submenús se abren con toque en lugar de hover
-        function toggleSubmenu(el){
-            if (window.innerWidth <= 768){
-                el.classList.toggle("open");
-            }
-        }
-
-        function abrirModalCapacitaciones(){
-            document.getElementById("modalCapacitaciones").style.display = "flex";
-        }
-        function cerrarModalCapacitaciones(){
-            document.getElementById("modalCapacitaciones").style.display = "none";
-        }
+        function toggleMenu(){ document.getElementById("menu").classList.toggle("active"); }
+        function toggleSubmenu(el){ if (window.innerWidth <= 768){ el.classList.toggle("open"); } }
+        function abrirModalCapacitaciones(){ document.getElementById("modalCapacitaciones").style.display = "flex"; }
+        function cerrarModalCapacitaciones(){ document.getElementById("modalCapacitaciones").style.display = "none"; }
 
         const infoNosotros = {
-            mision: {
-                titulo: "Nuestra Misión",
-                texto: "Promover la sostenibilidad y la acción frente al cambio climático mediante procesos de educación ambiental, asesoría y generación de soluciones prácticas, que fortalezcan la conexión con el medio ambiente y contribuyan a su cuidado, conservación y preservación."
-            },
-            vision: {
-                titulo: "Nuestra Visión",
-                texto: "Consolidarnos como una empresa líder en educación ambiental y en la implementación de soluciones sostenibles, reconocida por transformar territorios."
-            },
-            historia: {
-                titulo: "Nuestra Historia",
-                texto: "Mass Ágora nace en la pandemia, cuando una familia decidió transformar la incertidumbre en una oportunidad para crear un proyecto con propósito.<br><br>Unidos por la experiencia en educación y capacitación ambiental, damos vida a una iniciativa que busca generar un impacto real, conectando a las personas con la naturaleza a través de soluciones sostenibles que transforman espacios y comunidades.<br><br>Nuestro nombre refleja nuestra esencia: familia, compromiso y construcción colectiva para generar cambios reales.<br><br>Hoy trabajamos con un objetivo claro: crear bienestar, conciencia y valor ambiental, desarrollando proyectos que perduran en el tiempo y transforman la forma en que las personas se relacionan con su entorno.<br><br>Porque creemos que el cambio no se queda en las ideas, sino en las acciones que conectan y transforman."
-            }
+            mision: { titulo: "Nuestra Misión", texto: "Promover la sostenibilidad y la acción frente al cambio climático mediante procesos de educación ambiental, asesoría y generación de soluciones prácticas, que fortalezcan la conexión con el medio ambiente y contribuyan a su cuidado, conservación y preservación." },
+            vision: { titulo: "Nuestra Visión", texto: "Consolidarnos como una empresa líder en educación ambiental y en la implementación de soluciones sostenibles, reconocida por transformar territorios." },
+            historia: { titulo: "Nuestra Historia", texto: "Mass Ágora nace en la pandemia, cuando una familia decidió transformar la incertidumbre en una oportunidad para crear un proyecto con propósito.<br><br>Unidos por la experiencia en educación y capacitación ambiental, damos vida a una iniciativa que busca generar un impacto real, conectando a las personas con la naturaleza a través de soluciones sostenibles que transforman espacios y comunidades.<br><br>Nuestro nombre refleja nuestra esencia: familia, compromiso y construcción colectiva para generar cambios reales.<br><br>Hoy trabajamos con un objetivo claro: crear bienestar, conciencia y valor ambiental, desarrollando proyectos que perduran en el tiempo y transforman la forma en que las personas se relacionan con su entorno.<br><br>Porque creemos que el cambio no se queda en las ideas, sino en las acciones que conectan y transforman." }
         };
-
         function abrirModalInfo(seccion){
             document.getElementById("modal-titulo").innerHTML = infoNosotros[seccion].titulo;
             document.getElementById("modal-texto").innerHTML = infoNosotros[seccion].texto;
             document.getElementById("modalInfo").style.display = "flex";
         }
-
-        function cerrarModalInfo(){
-            document.getElementById("modalInfo").style.display = "none";
-        }
+        function cerrarModalInfo(){ document.getElementById("modalInfo").style.display = "none"; }
 
         /* CONTENIDO DEL BLOG — edita/añade artículos aquí */
         const entradasBlog = {
-            muros: {
-                tag: "Muros Verdes",
-                titulo: "5 beneficios de un muro verde en espacios urbanos",
-                img: "./Imagenesmass/MURO2.jpeg",
-                texto: "Los muros verdes se han convertido en una de las estrategias más sólidas para enfrentar el cambio climático en las ciudades.<br><br>1. Mejoran la calidad del aire al capturar partículas y gases de efecto invernadero.<br><br>2. Regulan la temperatura de las fachadas, reduciendo el efecto isla de calor urbano.<br><br>3. Aportan aislamiento acústico y térmico a las edificaciones.<br><br>4. Generan hábitat para polinizadores y aves en medio del concreto.<br><br>5. Aumentan el valor estético y comercial de los espacios donde se instalan.<br><br>En Mass Ágora diseñamos e instalamos muros verdes a la medida de cada proyecto, corporativo o residencial. Escríbenos y cotiza el tuyo."
-            },
-            huerta: {
-                tag: "Agroecología",
-                titulo: "Cómo empezar una huerta urbana desde cero",
-                img: "./Imagenesmass/PAISAJISMO3.png",
-                texto: "Sembrar en casa es más sencillo de lo que parece si sigues unos principios agroecológicos básicos.<br><br>1. Elige un espacio con al menos 4 horas de luz solar directa.<br><br>2. Empieza con contenedores o camas elevadas si no tienes tierra disponible.<br><br>3. Usa sustratos y abonos orgánicos en lugar de fertilizantes sintéticos.<br><br>4. Prioriza especies de ciclo corto (lechugas, aromáticas, rábanos) para tus primeras siembras.<br><br>5. Aplica manejo ecológico de plagas: rotación, plantas repelentes y observación constante.<br><br>Nuestro taller de Agroecología y Agricultura Urbana profundiza en cada uno de estos pasos con acompañamiento práctico."
-            },
-            educacion: {
-                tag: "Capacitaciones",
-                titulo: "Por qué la educación ambiental fortalece a las empresas",
-                img: "./Imagenesmass/CAPACITACION1.png",
-                texto: "La sostenibilidad ya no es solo una política corporativa: es una competencia que se construye con las personas.<br><br>Las campañas de educación y sensibilización ambiental ayudan a los equipos a entender su impacto diario, a adoptar hábitos de consumo responsable y a apropiarse de las metas ambientales de la organización.<br><br>Además, fortalecen el clima laboral, mejoran la reputación corporativa frente a clientes y aliados, y son un paso concreto hacia el cumplimiento de metas de cambio climático.<br><br>En Mass Ágora diseñamos programas de formación ambiental adaptados al sector, tamaño y necesidades de cada organización."
-            }
+            muros: { tag: "Muros Verdes", titulo: "5 beneficios de un muro verde en espacios urbanos", img: "./Imagenesmass/MURO2.jpeg", texto: "Los muros verdes se han convertido en una de las estrategias más sólidas para enfrentar el cambio climático en las ciudades.<br><br>1. Mejoran la calidad del aire al capturar partículas y gases de efecto invernadero.<br><br>2. Regulan la temperatura de las fachadas, reduciendo el efecto isla de calor urbano.<br><br>3. Aportan aislamiento acústico y térmico a las edificaciones.<br><br>4. Generan hábitat para polinizadores y aves en medio del concreto.<br><br>5. Aumentan el valor estético y comercial de los espacios donde se instalan.<br><br>En Mass Ágora diseñamos e instalamos muros verdes a la medida de cada proyecto, corporativo o residencial. Escríbenos y cotiza el tuyo." },
+            huerta: { tag: "Agroecología", titulo: "Cómo empezar una huerta urbana desde cero", img: "./Imagenesmass/PAISAJISMO3.png", texto: "Sembrar en casa es más sencillo de lo que parece si sigues unos principios agroecológicos básicos.<br><br>1. Elige un espacio con al menos 4 horas de luz solar directa.<br><br>2. Empieza con contenedores o camas elevadas si no tienes tierra disponible.<br><br>3. Usa sustratos y abonos orgánicos en lugar de fertilizantes sintéticos.<br><br>4. Prioriza especies de ciclo corto (lechugas, aromáticas, rábanos) para tus primeras siembras.<br><br>5. Aplica manejo ecológico de plagas: rotación, plantas repelentes y observación constante.<br><br>Nuestro taller de Agroecología y Agricultura Urbana profundiza en cada uno de estos pasos con acompañamiento práctico." },
+            educacion: { tag: "Capacitaciones", titulo: "Por qué la educación ambiental fortalece a las empresas", img: "./Imagenesmass/CAPACITACION1.png", texto: "La sostenibilidad ya no es solo una política corporativa: es una competencia que se construye con las personas.<br><br>Las campañas de educación y sensibilización ambiental ayudan a los equipos a entender su impacto diario, a adoptar hábitos de consumo responsable y a apropiarse de las metas ambientales de la organización.<br><br>Además, fortalecen el clima laboral, mejoran la reputación corporativa frente a clientes y aliados, y son un paso concreto hacia el cumplimiento de metas de cambio climático.<br><br>En Mass Ágora diseñamos programas de formación ambiental adaptados al sector, tamaño y necesidades de cada organización." }
         };
-
         function abrirModalBlog(id){
             const post = entradasBlog[id];
             document.getElementById("blog-titulo").innerHTML = post.titulo;
@@ -913,19 +647,11 @@
             document.getElementById("blog-img").alt = post.titulo;
             document.getElementById("modalBlog").style.display = "flex";
         }
-
-        function cerrarModalBlog(){
-            document.getElementById("modalBlog").style.display = "none";
-        }
+        function cerrarModalBlog(){ document.getElementById("modalBlog").style.display = "none"; }
 
         document.addEventListener("keydown", function(event) {
-            if (event.key === "Escape") {
-                cerrarModalInfo();
-                cerrarModalCapacitaciones();
-                cerrarModalBlog();
-            }
+            if (event.key === "Escape") { cerrarModalInfo(); cerrarModalCapacitaciones(); cerrarModalBlog(); }
         });
-
         window.addEventListener("click", function(event) {
             let modalInfo = document.getElementById("modalInfo");
             let modalCapacitaciones = document.getElementById("modalCapacitaciones");
@@ -934,6 +660,107 @@
             if (event.target === modalCapacitaciones) { cerrarModalCapacitaciones(); }
             if (event.target === modalBlog) { cerrarModalBlog(); }
         });
+
+        /* ===== CONTADORES ANIMADOS (estilo CAEM) ===== */
+        function animarContadores(){
+            document.querySelectorAll('.counter').forEach(el => {
+                const target = parseInt(el.getAttribute('data-target'), 10);
+                let current = 0;
+                const step = Math.max(1, Math.ceil(target / 60));
+                const timer = setInterval(() => {
+                    current += step;
+                    if (current >= target){ current = target; clearInterval(timer); }
+                    el.textContent = current;
+                }, 20);
+            });
+        }
+        const statsObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting){ animarContadores(); statsObserver.disconnect(); }
+            });
+        }, { threshold: 0.4 });
+        const statsBarEl = document.querySelector('.stats-bar');
+        if (statsBarEl) statsObserver.observe(statsBarEl);
+
+        /* ===== OFERTA ACADÉMICA: PESTAÑAS INTERACTIVAS (estilo CAEM) ===== */
+        const ofertaAcademica = [
+            {
+                icon: "fa-solid fa-seedling",
+                tipo: "Taller",
+                titulo: "Agroecología y Agricultura Urbana",
+                subtitulo: "Aprende a diseñar y mantener una huerta urbana con principios agroecológicos.",
+                intensidad: "Por definir",
+                linea: "Agroecología",
+                img: "./Imagenesmass/Capacitacion.png",
+                descripcion: "Principios agroecológicos, huertas urbanas, suelo y sustratos, siembra y propagación, abonos orgánicos, manejo ecológico de plagas y biodiversidad en la huerta. Modalidad presencial o virtual.",
+                whatsapp: "https://wa.me/573115782633?text=Solicito%20información%20del%20Taller%20de%20Huertas%20Urbanas"
+            },
+            {
+                icon: "fa-solid fa-recycle",
+                tipo: "Seminario",
+                titulo: "Residuos y Economía Circular",
+                subtitulo: "Estrategias para la separación en la fuente y el consumo responsable.",
+                intensidad: "Por definir",
+                linea: "Economía Circular",
+                img: "./Imagenesmass/CAPACITACION1.png",
+                descripcion: "Separación en la fuente, aprovechamiento de residuos, reciclaje y consumo responsable, orientado a organizaciones que buscan reducir su huella ambiental. Modalidad presencial o virtual.",
+                whatsapp: "https://wa.me/573115782633?text=Solicito%20información%20del%20Seminario%20de%20Agroecología%20Corporativa"
+            },
+            {
+                icon: "fa-solid fa-compost",
+                tipo: "Taller",
+                titulo: "Compostaje y Residuos Orgánicos",
+                subtitulo: "Transforma residuos orgánicos en abono para proyectos sostenibles.",
+                intensidad: "Por definir",
+                linea: "Agroecología",
+                img: "./Imagenesmass/MURO.jpeg",
+                descripcion: "Técnicas de transformación de residuos orgánicos en abonos, aplicables tanto en hogares como en proyectos productivos y espacios verdes corporativos. Modalidad presencial.",
+                whatsapp: "https://wa.me/573115782633?text=Solicito%20información%20del%20Taller%20de%20Compostaje"
+            },
+            {
+                icon: "fa-solid fa-bullhorn",
+                tipo: "Capacitación",
+                titulo: "Educación y Sensibilización Ambiental",
+                subtitulo: "Estrategias para promover cambios de comportamiento sostenibles.",
+                intensidad: "Por definir",
+                linea: "Educación Ambiental",
+                img: "./Imagenesmass/PAISAJISMO1.jpeg",
+                descripcion: "Campañas de educación y sensibilización diseñadas para conectar el conocimiento ambiental con la acción dentro de organizaciones, instituciones educativas y comunidades. Modalidad presencial.",
+                whatsapp: "https://wa.me/573115782633?text=Solicito%20información%20de%20Capacitación%20Mantenimiento%20Muros%20Verdes"
+            }
+        ];
+
+        function renderOfertaTabs(){
+            const tabsWrap = document.getElementById('ofertaTabs');
+            tabsWrap.innerHTML = ofertaAcademica.map((curso, i) => `
+                <button class="oferta-tab${i === 0 ? ' active' : ''}" onclick="mostrarOferta(${i})">
+                    <i class="${curso.icon}"></i><span>${curso.titulo}</span>
+                </button>
+            `).join('');
+        }
+
+        function mostrarOferta(index){
+            const curso = ofertaAcademica[index];
+            document.querySelectorAll('.oferta-tab').forEach((tab, i) => tab.classList.toggle('active', i === index));
+            document.getElementById('ofertaPanel').innerHTML = `
+                <div class="oferta-panel-img" style="background-image:url('${curso.img}')"></div>
+                <div class="oferta-panel-body">
+                    <span class="tipo-badge">${curso.tipo}</span>
+                    <h3>${curso.titulo}</h3>
+                    <p class="subtitulo">${curso.subtitulo}</p>
+                    <div class="oferta-meta">
+                        <div><i class="fa-solid fa-clock"></i> Intensidad horaria: ${curso.intensidad}</div>
+                        <div><i class="fa-solid fa-graduation-cap"></i> Línea: ${curso.linea}</div>
+                        <div><i class="fa-solid fa-laptop-house"></i> Modalidad: Presencial / Virtual</div>
+                    </div>
+                    <p class="descripcion">${curso.descripcion}</p>
+                    <a href="${curso.whatsapp}" target="_blank" class="btn-course-enroll"><i class="fa-brands fa-whatsapp"></i> Inscribirse / Cotizar</a>
+                </div>
+            `;
+        }
+
+        renderOfertaTabs();
+        mostrarOferta(0);
     </script>
 </body>
 </html>
