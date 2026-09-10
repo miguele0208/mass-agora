@@ -77,21 +77,7 @@
         .btn-secondary-hero { background-color: transparent; color: var(--white); border: 2px solid var(--white); padding: 12px 26px; text-decoration: none; font-weight: 600; border-radius: 4px; transition: 0.3s; font-size: 15px; }
         .btn-secondary-hero:hover { background-color: rgba(255,255,255,0.12); }
 
-        /* CARRUSEL DE CAPACITACIONES (funcener) */
-        .cursos-carrusel-wrap { background: var(--primary); padding: 0 8% 55px; }
-        .cursos-carrusel-title { color: var(--white); text-align: center; padding-top: 12px; font-size: 20px; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 25px; opacity: 0.9; }
-        .cursos-carrusel { display: flex; gap: 18px; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 10px; }
-        .cursos-carrusel::-webkit-scrollbar { height: 6px; }
-        .cursos-carrusel::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 10px; }
-        .curso-slide { scroll-snap-align: start; flex: 0 0 230px; background: var(--primary-light); border-radius: 8px; overflow: hidden; text-decoration: none; color: var(--white); position: relative; transition: transform 0.3s; }
-        .curso-slide:hover { transform: translateY(-6px); }
-        .curso-slide .num { position: absolute; top: 12px; left: 12px; background: var(--accent); width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 13px; z-index: 2; }
-        .curso-slide img { height: 140px; width: 100%; object-fit: cover; }
-        .curso-slide .curso-info { padding: 15px; }
-        .curso-slide h4 { font-size: 14.5px; margin-bottom: 6px; }
-        .curso-slide .ver-mas { font-size: 12px; color: var(--accent); font-weight: 700; text-transform: uppercase; }
-
-        /* STATS ANIMADOS (CAEM) */
+         /* STATS ANIMADOS (CAEM) */
         .stats-bar { background: var(--white); padding: 35px 8%; display: flex; justify-content: space-around; flex-wrap: wrap; gap: 25px; box-shadow: 0 4px 15px rgba(0,0,0,0.03); margin-top: -30px; position: relative; z-index: 10; border-radius: 6px; max-width: 1200px; margin-left: auto; margin-right: auto; }
         .stat-item { text-align: center; display: flex; flex-direction: column; align-items: center; gap: 8px; }
         .stat-item .stat-icon { width: 56px; height: 56px; border-radius: 50%; background: var(--light-bg); display: flex; align-items: center; justify-content: center; font-size: 24px; color: var(--accent); }
@@ -293,7 +279,7 @@
     <section class="hero">
         <div class="hero-content">
             <span class="hero-badge">Conexión Ambiental</span>
-            <h1>Formación Ambiental y <span class="accent-line">Transformación de Espacios Sostenibles</span></h1>
+            <h1>Formación Ambiental y <span class="accent-line">Espacios Sostenibles</span></h1>
             <p>Empoderamos organizaciones, empresas y comunidades en temas ambientales como estrategia de sostenibilidad y acciones frente al cambio climático a través de programas educativos y diseño de infraestructura verde que inspiran y promueven una conexión consciente con el medio ambiente.</p>
             <div class="hero-buttons">
                 <button onclick="abrirModalCapacitaciones()" class="btn-primary-hero"><i class="fa-solid fa-graduation-cap"></i> Explorar Capacitaciones</button>
@@ -301,38 +287,6 @@
             </div>
         </div>
     </section>
-
-    <!-- CARRUSEL DE CAPACITACIONES -->
-    <div class="cursos-carrusel-wrap">
-        <h3 class="cursos-carrusel-title">Conoce Nuestras Capacitaciones</h3>
-        <div class="cursos-carrusel">
-            <a href="javascript:void(0)" onclick="abrirModalCapacitaciones()" class="curso-slide">
-                <span class="num">1</span>
-                <img src="./Imagenesmass/Capacitacion.png" alt="Agroecología y Agricultura Urbana">
-                <div class="curso-info"><h4>Agroecología y Agricultura Urbana</h4><span class="ver-mas">Conoce más <i class="fa-solid fa-arrow-right"></i></span></div>
-            </a>
-            <a href="javascript:void(0)" onclick="abrirModalCapacitaciones()" class="curso-slide">
-                <span class="num">2</span>
-                <img src="./Imagenesmass/CAPACITACION1.png" alt="Residuos y Economía Circular">
-                <div class="curso-info"><h4>Residuos y Economía Circular</h4><span class="ver-mas">Conoce más <i class="fa-solid fa-arrow-right"></i></span></div>
-            </a>
-            <a href="javascript:void(0)" onclick="abrirModalCapacitaciones()" class="curso-slide">
-                <span class="num">3</span>
-                <img src="./Imagenesmass/MURO.jpeg" alt="Compostaje y Manejo de Residuos Orgánicos">
-                <div class="curso-info"><h4>Compostaje y Residuos Orgánicos</h4><span class="ver-mas">Conoce más <i class="fa-solid fa-arrow-right"></i></span></div>
-            </a>
-            <a href="javascript:void(0)" onclick="abrirModalCapacitaciones()" class="curso-slide">
-                <span class="num">4</span>
-                <img src="./Imagenesmass/PAISAJISMO1.jpeg" alt="Campañas de Educación y Sensibilización">
-                <div class="curso-info"><h4>Educación y Sensibilización</h4><span class="ver-mas">Conoce más <i class="fa-solid fa-arrow-right"></i></span></div>
-            </a>
-            <a href="#servicios" class="curso-slide">
-                <span class="num">5</span>
-                <img src="./Imagenesmass/MURO1.jpeg" alt="Espacios Sostenibles">
-                <div class="curso-info"><h4>Muros Verdes y Paisajismo</h4><span class="ver-mas">Cotizar <i class="fa-solid fa-arrow-right"></i></span></div>
-            </a>
-        </div>
-    </div>
 
     <!-- STATS ANIMADOS -->
     <div style="padding: 0 8%;">
