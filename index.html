@@ -42,7 +42,7 @@
         .topbar-social a { color: var(--white); margin-left: 12px; text-decoration: none; font-size: 14px; transition: color 0.3s; }
         .topbar-social a:hover { color: var(--accent); }
 
-        /* NAVBAR CON SUBMENÚS (funcener.org) */
+        /* NAVBAR CON SUBMENÚS */
         header { background: var(--white); box-shadow: 0 2px 12px rgba(0,0,0,0.06); position: sticky; top: 0; z-index: 1000; }
         nav { display: flex; justify-content: space-between; align-items: center; padding: 12px 8%; }
         .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
@@ -60,7 +60,7 @@
         .btn-cta:hover { background-color: var(--primary) !important; }
         .menu-toggle { display: none; font-size: 24px; cursor: pointer; color: var(--primary); }
 
-        /* HERO — tipografía masiva estilo CAEM */
+        /* HERO — tipografía masiva */
         .hero {
             background: linear-gradient(120deg, rgba(44,74,62,0.92), rgba(58,95,82,0.86)), url("./Imagenesmass/fondo.png") center/cover no-repeat;
             color: var(--white);
@@ -77,7 +77,7 @@
         .btn-secondary-hero { background-color: transparent; color: var(--white); border: 2px solid var(--white); padding: 12px 26px; text-decoration: none; font-weight: 600; border-radius: 4px; transition: 0.3s; font-size: 15px; }
         .btn-secondary-hero:hover { background-color: rgba(255,255,255,0.12); }
 
-         /* STATS ANIMADOS (CAEM) */
+         /* STATS ANIMADOS */
         .stats-bar { background: var(--white); padding: 35px 8%; display: flex; justify-content: space-around; flex-wrap: wrap; gap: 25px; box-shadow: 0 4px 15px rgba(0,0,0,0.03); margin-top: -30px; position: relative; z-index: 10; border-radius: 6px; max-width: 1200px; margin-left: auto; margin-right: auto; }
         .stat-item { text-align: center; display: flex; flex-direction: column; align-items: center; gap: 8px; }
         .stat-item .stat-icon { width: 56px; height: 56px; border-radius: 50%; background: var(--light-bg); display: flex; align-items: center; justify-content: center; font-size: 24px; color: var(--accent); }
@@ -108,7 +108,7 @@
         .experiencia-card p { color: var(--text-gray); font-size: 14.5px; }
 
         /* NOSOTROS - TARJETAS */
-        .nosotros-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-top: 20px; }
+        .nosotros-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px; margin-top: 20px; }
         .nosotros-card { background: var(--white); border: 1px solid var(--border); border-radius: 8px; padding: 40px 20px; text-align: center; box-shadow: 0 4px 10px rgba(0,0,0,0.02); transition: transform 0.3s, box-shadow 0.3s; cursor: pointer; }
         .nosotros-card:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0,0,0,0.08); border-bottom: 4px solid var(--accent); }
         .nosotros-card i { font-size: 45px; color: var(--accent); margin-bottom: 20px; }
@@ -136,17 +136,6 @@
         .oferta-meta i { color: var(--accent); width: 18px; text-align: center; }
         .oferta-panel-body .descripcion { color: var(--text-gray); font-size: 14.5px; margin-bottom: 25px; }
         @media(max-width: 800px){ .oferta-panel { grid-template-columns: 1fr; } .oferta-panel-img { min-height: 220px; } }
-
-        /* SERVICIOS */
-        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
-        .service-card { background: var(--white); border: 1px solid var(--border); border-radius: 8px; padding: 35px; box-shadow: 0 4px 10px rgba(0,0,0,0.02); transition: transform 0.3s, box-shadow 0.3s; display: flex; flex-direction: column; position: relative; }
-        .service-card:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0,0,0,0.08); }
-        .service-card.featured { border-top: 5px solid var(--accent); }
-        .service-icon { width: 60px; height: 60px; background: var(--light-bg); border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 26px; color: var(--accent); margin-bottom: 20px; }
-        .service-card h3 { font-size: 22px; color: var(--primary); margin-bottom: 12px; }
-        .service-card p { color: var(--text-gray); font-size: 14px; margin-bottom: 25px; flex-grow: 1; }
-        .btn-card-action { display: inline-block; text-align: center; background: var(--primary); color: var(--white); padding: 12px; border-radius: 4px; text-decoration: none; font-weight: 700; font-size: 14px; cursor: pointer; border: none; transition: 0.2s; }
-        .btn-card-action:hover { background: var(--accent); }
 
         /* BLOG */
         .blog-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
@@ -338,6 +327,19 @@
         </div>
     </section>
 
+    <!-- OFERTA ACADÉMICA — PESTAÑAS INTERACTIVAS -->
+    <section id="oferta" class="oferta-section">
+        <div class="section-header">
+            <span class="eyebrow">Formación Ambiental</span>
+            <h2>Oferta Académica</h2>
+            <div class="divider"></div>
+            <p>Programas soportados en las necesidades de empresas, instituciones y comunidades, con metodologías participativas y modalidad presencial o virtual.</p>
+        </div>
+
+        <div class="oferta-tabs" id="ofertaTabs"></div>
+        <div class="oferta-panel" id="ofertaPanel"></div>
+    </section>
+
     <!-- NUESTRA EXPERIENCIA -->
     <section style="background: var(--light-bg);">
         <div class="section-header">
@@ -360,43 +362,6 @@
                 <i class="fa-solid fa-people-group"></i>
                 <h3>Gestión y Alianzas</h3>
                 <p>Construimos procesos comunitarios y alianzas estratégicas que fortalecen la conexión ambiental y el impacto de cada proyecto.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- OFERTA ACADÉMICA — PESTAÑAS INTERACTIVAS -->
-    <section id="oferta" class="oferta-section">
-        <div class="section-header">
-            <span class="eyebrow">Formación Ambiental</span>
-            <h2>Oferta Académica</h2>
-            <div class="divider"></div>
-            <p>Programas soportados en las necesidades de empresas, instituciones y comunidades, con metodologías participativas y modalidad presencial o virtual.</p>
-        </div>
-
-        <div class="oferta-tabs" id="ofertaTabs"></div>
-        <div class="oferta-panel" id="ofertaPanel"></div>
-    </section>
-
-    <!-- SERVICIOS -->
-    <section id="servicios">
-        <div class="section-header">
-            <span class="eyebrow">Portafolio</span>
-            <h2>Portafolio de Servicios</h2>
-            <div class="divider"></div>
-            <p>Líneas estratégicas desarrolladas para empresas, instituciones educativas y proyectos privados.</p>
-        </div>
-        <div class="services-grid">
-            <div class="service-card featured">
-                <div class="service-icon"><i class="fa-solid fa-graduation-cap"></i></div>
-                <h3>Formación & Capacitaciones</h3>
-                <p>Nuestros programas se desarrollan mediante talleres ambientales, procesos de formación, campañas de educación y sensibilización, extensión y acompañamiento ambiental, proyectos pedagógicos y procesos comunitarios, adaptados a las necesidades de cada organización, territorio y comunidad, con metodologías participativas que facilitan el aprendizaje y promueven la acción ambiental.</p>
-                <button onclick="abrirModalCapacitaciones()" class="btn-card-action">Ver Oferta de Capacitaciones <i class="fa-solid fa-arrow-right"></i></button>
-            </div>
-            <div class="service-card">
-                <div class="service-icon"><i class="fa-solid fa-leaf"></i></div>
-                <h3>Espacios Sostenibles</h3>
-                <p>También aprendemos de los lugares que habitamos. Por eso diseñamos y transformamos espacios que permiten fortalecer los procesos de educación y conexión ambiental.</p>
-                <a href="https://wa.me/573115782633?text=Hola,%20deseo%20cotizar%20un%20proyecto%20de%20Paisajismo/Muro%20Verde" target="_blank" class="btn-card-action">Cotizar Proyecto</a>
             </div>
         </div>
     </section>
